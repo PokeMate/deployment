@@ -1,0 +1,17 @@
+version: "3"
+services:
+  api-database:
+    image: mongo
+    container_name: "pokemate-database"
+    ports:
+      - 27017:27017
+    volumes:
+      - /opt/mongodb:/data/db
+    command: --smallfiles
+  api:
+    image: pokeMate/backend-image
+    container_name: "pokemate-backend"
+    ports:
+      - 5001:8080
+    links:
+      - pokemate-database
