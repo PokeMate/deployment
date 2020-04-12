@@ -4,14 +4,22 @@ services:
     image: mongo
     container_name: "pokemate-database"
     ports:
-      - 27017:27017
-    volumes:
-      - /opt/mongodb:/data/db
-    command: --smallfiles
-  api:
-    image: pokeMate/backend-image
-    container_name: "pokemate-backend"
+      - 5003:27017
+    # volumes:
+    #   - /opt/mongodb:/data/db
+    # command: --smallfiles
+  name-generator:
+    image: pokemate/name-generator
+    container_name: "pokemate-name-generator"
     ports:
-      - 5001:8080
-    links:
-      - pokemate-database
+      - 5000:5000
+    # volumes:
+    #   - /usr/src/app:/data/name-generator
+  # api:
+  #   image: pokemate/backend-image
+  #   container_name: "pokemate-backend"
+  #   ports:
+  #     - 5100:8080
+  #   depends_on:
+  #     - api-database
+  #     - name-generator
