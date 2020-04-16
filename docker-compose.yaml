@@ -1,25 +1,32 @@
 version: "3"
 services:
-  api-database:
+  pokemate-database:
     image: mongo
-    container_name: "pokemate-database"
+    container_name: "poke-mongo"
     ports:
       - 5003:27017
-    # volumes:
-    #   - /opt/mongodb:/data/db
-    # command: --smallfiles
+    volumes:
+      - ./data/db:/data/db
+  mongo_seed:
+    image: mongo
+    depends_on:
+      - pokemate-database
+    volumes:
+      - ./mongo-seed:/mongo-seed
+    command:
+      /mongo-seed/import.sh
   name-generator:
     image: pokemate/name-generator
     container_name: "pokemate-name-generator"
     ports:
       - 5000:5000
-    # volumes:
-    #   - /usr/src/app:/data/name-generator
-  # api:
-  #   image: pokemate/backend-image
-  #   container_name: "pokemate-backend"
-  #   ports:
-  #     - 5100:8080
-  #   depends_on:
-  #     - api-database
-  #     - name-generator
+  backend:
+    image: pokemate/backend:fea
+    container_name: "pokemate-backend"
+    ports:
+      - 5100:8080
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    depends_on:
+      - pokemate-database
+      - name-generator
