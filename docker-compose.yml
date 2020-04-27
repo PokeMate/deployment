@@ -15,23 +15,23 @@ services:
       - ./mongo-seed:/mongo-seed
     command: /mongo-seed/import.sh
   name-generator:
-    image: pokemate/name-generator
+    image: pokemate/name-generator:latest
     container_name: "pokemate-name-generator"
     ports:
       - 5000:5000
   image-generator:
-    image: pokemate/image-generator:develop
+    image: pokemate/image-generator:latest
     container_name: "pokemate-image-generator"
     ports:
       - 5001:5001
   frontend:
-    image: pokemate/frontend
+    image: pokemate/frontend:latest
     container_name: "pokemate-frontend"
     ports:
       - 8080:8080
     stdin_open: true
   backend:
-    image: pokemate/backend:fea
+    image: pokemate/backend:latest
     container_name: "pokemate-backend"
     ports:
       - 5100:8080

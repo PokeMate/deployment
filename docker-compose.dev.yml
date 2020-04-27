@@ -1,0 +1,10 @@
+version: "3"
+services:
+  name-generator:
+    image: pokemate/name-generator:develop
+  image-generator:
+    image: pokemate/image-generator:develop
+  frontend:
+    image: pokemate/frontend:develop
+  backend:
+    image: pokemate/backend:develop
