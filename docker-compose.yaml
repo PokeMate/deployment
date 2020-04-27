@@ -19,6 +19,11 @@ services:
     container_name: "pokemate-name-generator"
     ports:
       - 5000:5000
+  image-generator:
+    image: pokemate/image-generator:develop
+    container_name: "pokemate-image-generator"
+    ports:
+      - 5001:5001
   frontend:
     image: pokemate/frontend
     container_name: "pokemate-frontend"
