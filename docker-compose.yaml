@@ -13,13 +13,18 @@ services:
       - pokemate-database
     volumes:
       - ./mongo-seed:/mongo-seed
-    command:
-      /mongo-seed/import.sh
+    command: /mongo-seed/import.sh
   name-generator:
     image: pokemate/name-generator
     container_name: "pokemate-name-generator"
     ports:
       - 5000:5000
+  frontend:
+    image: pokemate/frontend
+    container_name: "pokemate-frontend"
+    ports:
+      - 8080:8080
+    stdin_open: true
   backend:
     image: pokemate/backend:fea
     container_name: "pokemate-backend"
