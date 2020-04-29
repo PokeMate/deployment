@@ -22,7 +22,7 @@ docker-compose up
 Pull most recent images:
 
 ```bash
-docker-compose pull -f docker-compose.dev.yml
+docker-compose -f docker-compose.dev.yml pull
 ```
 
 To run all containers, execute:
