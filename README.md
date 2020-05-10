@@ -1,5 +1,11 @@
 # Pokemate Deployment
 
+## Architecture
+
+The follwing image illustrates how the containers a communicating with eachother. Each of images is available on Dockerhub. Thus, there is no need to clone any other repositories.
+
+![Image description](./overview.png)
+
 ## Run
 
 Pull most recent images:
@@ -31,9 +37,3 @@ To run all containers, execute:
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 # use -d option for detached mode
 ```
-
-## Architecture
-
-The follwing image illustrates how the containers a communicating with eachother.
-
-![Image description](./overview.png)
