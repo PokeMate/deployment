@@ -4,7 +4,7 @@
 
 The follwing image illustrates how the containers a communicating with eachother. Each of images is available on Dockerhub. Thus, there is no need to clone any other repositories.
 
-![Image description](./pokemate-architecture.png)
+![Image description](./documentation/pokemate-architecture.png)
 
 ## Run
 
@@ -20,7 +20,6 @@ To run all containers, execute:
 docker-compose up
 # use -d option for detached mode
 ```
-
 
 ## Run in DEV mode
 
