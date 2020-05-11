@@ -4,7 +4,7 @@
 
 The follwing image illustrates how the containers a communicating with eachother. Each of images is available on Dockerhub. Thus, there is no need to clone any other repositories.
 
-![Image description](./overview.png)
+![Image description](./pokemate-architecture.png)
 
 ## Run
 
