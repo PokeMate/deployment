@@ -1,6 +1,18 @@
 # Pokemate Deployment
 
+## Architecture
+
+The follwing image illustrates how the containers a communicating with eachother. Each of images is available on Dockerhub. Thus, there is no need to clone any other repositories.
+
+![Image description](./overview.png)
+
 ## Run
+
+Pull most recent images:
+
+```bash
+docker-compose pull
+```
 
 To run all containers, execute:
 
@@ -11,8 +23,17 @@ docker-compose up
 
 :warning: If you run the setup locally and want to access the frontend, your browser will block cross-domain requests. Thus, it is recommended to install [this Chrome extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) for testing purposes.
 
-## Architecture
+## Run in DEV mode
 
-The follwing image illustrates how the containers a communicating with eachother.
+Pull most recent images:
 
-![Image description](./overview.png)
+```bash
+docker-compose -f docker-compose.dev.yml pull
+```
+
+To run all containers, execute:
+
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+# use -d option for detached mode
+```
