@@ -11,17 +11,17 @@
 
 ## Table of Contents
 
-- [Installtion Instructions](#installtion-instructions)
+- [Installation Instructions](#installtion-instructions)
 - [Source Code](#source-code)
 - [Documentation](#documentation)
 - [Architecture](#architecture)
 - [CI/CD](#ci-cd)
-- [Implementation Organisation](#implementation-organisation)
+- [Implementation Organization](#implementation-organisation)
 - [Design Decisions](#design-decisions)
-- [Scalablility Plans](#scalablility-plans)
+- [Scalability Plans](#scalablility-plans)
 - [Demo](#demo)
 
-## Installtion Instructions
+## Installation Instructions
 
 1. Clone deployment repository:
 
@@ -46,9 +46,9 @@ For this project a new Github organization was created. It can be found on this 
 
 Each repository in the Github organization has its own README for more details on how to run the micro-service on its own.
 
-Furthermore, a [wiki](https://github.com/PokeMate/deployment/wiki) is used to get a better insight into the project such as the architecture, CI/CD, design descisions etc. It has many similarities to this document.
+Furthermore, a [wiki](https://github.com/PokeMate/deployment/wiki) is used to get a better insight into the project such as the architecture, CI/CD, design decisions etc. It has many similarities to this document.
 
-Also we used swagger to document all the endpoints of the backend. If the applicaiton is running you can check it out on [http://localhost:5100/swagger-ui](http://localhost:5100/swagger-ui).
+Also we used swagger to document all the endpoints of the backend. If the application is running you can check it out on [http://localhost:5100/swagger-ui](http://localhost:5100/swagger-ui).
 
 The slides for the presentation are available [here](https://github.com/PokeMate/deployment/tree/master/documentation/presentations).
 
@@ -56,7 +56,7 @@ We also generated a video that illustrates the progress of the development. It i
 
 ## Architecture
 
-The follwing image illustrates how the containers a communicating with each other. Each of images is available on Dockerhub. Thus, there is no need to clone any other repositories.
+The following image illustrates how the containers a communicating with each other. Each of images is available on Dockerhub. Thus, there is no need to clone any other repositories.
 
 ![architecture](https://github.com/PokeMate/deployment/blob/master/documentation/images/pokemate-architecture.png?raw=true)
 
@@ -84,10 +84,10 @@ The workflow for continues integration and deployment we use the following techn
 
 ![cicd](https://github.com/PokeMate/deployment/blob/master/documentation/images/ci-cd.png?raw=true)
 
-## Project Organisation
+## Project Organization
 
 **Kanban Board**
-One reason for using a Github organization was due to the fact that we can make a unified Kanban board accross all repositories. The columns in the Kanban board can be configured such that issues are aututomatically assigned to column given some events. The board can be found with this [link](https://github.com/orgs/PokeMate/projects/1).
+One reason for using a Github organization was due to the fact that we can make a unified Kanban board across all repositories. The columns in the Kanban board can be configured such that issues are automatically assigned to column given some events. The board can be found with this [link](https://github.com/orgs/PokeMate/projects/1).
 
 **Git Flow**
 A simplified version of Git Flow was used for the versioning and branching.
@@ -132,15 +132,18 @@ We initially thought there is the would be the need for an additional repository
 
 For Python microservices we used [pytest](https://docs.pytest.org/en/latest/) for testing. A Github Action was configured such that the tests are run on certain branches. [This Github Action](https://github.com/SonarSource/sonarcloud-github-action) was then used to trigger SonarCloud to analyze the code. The analysis can be found [here](https://sonarcloud.io/dashboard?id=PokeMate_name-generator).
 
+The automated tests were also integrated into the backend repository with the same Github Actions. The testing for the REST repositories was done using the spring frameworks testing functionality.
+Which allows simple testing of context loading as well as requests and spring repositories.
+
 ![SonarQube](https://github.com/PokeMate/deployment/blob/master/documentation/images/sonarqube.png?raw=true)
 
 For the frontend application no tests were written up to this point.
 
-## Scalablility Plans
+## Scalability Plans
 
 As part of the objective of this project is to think about how the application can be scaled in the future. Thus, we came up with the following architecture.
 
-![scalablility-plans](https://github.com/PokeMate/deployment/blob/master/documentation/images/scalablility-plans.png?raw=true)
+![scalability-plans](https://github.com/PokeMate/deployment/blob/master/documentation/images/scalablility-plans.png?raw=true)
 
 The following technologies would be used to achieve this goal:
 
@@ -187,7 +190,7 @@ The fetishes section is used as an entertainment parameter and is currently not 
 The application was designed in a way that it scales properly for mobile too.
 
 <p float="middle">
-  <img src="https://github.com/PokeMate/frontend/raw/master/demo/mobile-pokedex.png" width="300" /> 
+  <img src="https://github.com/PokeMate/frontend/raw/master/demo/mobile-pokedex.png" width="300" />
   <img src="https://github.com/PokeMate/frontend/raw/master/demo/mobile-details.png" width="300" />
   <img src="https://github.com/PokeMate/frontend/raw/master/demo/mobile-rating.png" width="300" />
 </p>
