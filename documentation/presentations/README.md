@@ -104,7 +104,7 @@ For the naming of the versioning and releases, semantic versioning was used: Giv
 **Pull Requests**
 All commits into the develop and master branch need to be reviewed through a pull request. We setup a branch protection in Github for these two branches, meaning that it is not possible to simply push into these branches. It is only possible through a pull request. Pull requests also triggered Github actions as well as SonarQube. The result of the analysis was then directly pushed into the pull request and thus, letting the review know if the tests still pass.
 
-![SonarQube](https://github.com/PokeMate/deployment/blob/master/sonarquebe.png?raw=true)
+![SonarQube](https://github.com/PokeMate/deployment/blob/master/documentation/images/sonarquebe.png?raw=true)
 
 **Timeline**
 
